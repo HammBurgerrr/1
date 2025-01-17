@@ -629,7 +629,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Resimlere tıklandığında modal açılır veya aktif modal kapatılır ve yeniden açılır
     document.querySelectorAll(".product-card img").forEach(img => {
-        img.addEventListener("click", function () {
+        img.addEventListener("click", function (event) {
+            event.stopPropagation(); // Tıklamanın yukarı taşınmasını önle
             // Eğer modal açık ve aynı resme tıklanmışsa kapat
             if (modal.style.display === "flex" && modalImg.src === this.src) {
                 modal.style.display = "none";
